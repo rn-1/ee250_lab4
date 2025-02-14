@@ -5,6 +5,7 @@ import paho.mqtt.client as mqtt
 import time
 from datetime import datetime
 import socket
+import random
 
 """This function (or "callback") will be executed when this client receives 
 a connection acknowledgement packet response from the server. """
@@ -38,6 +39,6 @@ if __name__ == '__main__':
 
     while True:
         #replace user with your USC username in all subscriptions
-        client.publish("rnene/ping", f"{1}")
+        client.publish("rnene/ping", f"{(random.randint(0, 100))}")
         # publish ping 
-        time.sleep(4)
+        time.sleep(1)
