@@ -22,9 +22,9 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(f"{user}")
 
     # Add the custom callbacks by indicating the topic and the name of the callback handle
-    client.message_callback_add("user/ipinfo", on_message_from_ipinfo)
-    client.message_callback_add("user/date", on_message_from_date)
-    client.message_callback_add("user", on_message_from_date)
+    client.message_callback_add(f"{user}/ipinfo", on_message_from_ipinfo)
+    client.message_callback_add(f"{user}/date", on_message_from_date)
+    client.message_callback_add(f"{user}", on_message_from_date)
 
 
 """This object (functions are objects!) serves as the default callback for 
@@ -58,7 +58,7 @@ def on_message_from_user(client, userdata, message):
 if __name__ == "__main__":
 
     # create a client object
-    client = mqtt.Client()
+    client = mqtt.Client(callback_api_version=5)
     # attach a default callback which we defined above for incoming mqtt messages
     client.on_message = on_message
     # attach the on_connect() callback function defined above to the mqtt client

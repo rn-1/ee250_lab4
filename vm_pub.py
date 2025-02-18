@@ -16,7 +16,7 @@ if __name__ == '__main__':
     #get IP address
     ip_address = socket.gethostbyname(socket.gethostname())
     #create a client object
-    client = mqtt.Client()
+    client = mqtt.Client(callback_api_version=5)
     
     #attach the on_connect() callback function defined above to the mqtt client
     client.on_connect = on_connect
