@@ -45,4 +45,4 @@ if __name__ == '__main__':
         #get date and time 
         date = datetime.now().strftime("%Y-%m-%d")
         #publish date and time in their own topics
-        client.publish("rnene/data", f"{date}")
+        client.publish("rnene/date", f"{date}")

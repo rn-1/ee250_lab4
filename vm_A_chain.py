@@ -39,8 +39,8 @@ if __name__ == '__main__':
 
     while True:
         #replace user with your USC username in all subscriptions
-        num = (random.randint(0, 100))
-        client.publish("rnene/pong", f"{num}")
-        print(f"ping {num}")
-        # publish ping 
-        time.sleep(1)
+        for num in range(1000):
+            client.publish("rnene/pong", f"{num}")
+            print(f"ping {num}")
+            # publish ping 
+            time.sleep(1)
